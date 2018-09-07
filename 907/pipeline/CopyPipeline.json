@@ -1,0 +1,92 @@
+{
+	"name": "CopyPipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "GitHubCopyFromBlobToBlob",
+				"description": "testtestsetes",
+				"type": "Copy",
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "adftutorial/input/test_input.txt"
+					},
+					{
+						"name": "Destination",
+						"value": "adftutorial/output/@{CONCAT(pipeline().RunId, '.txt')}"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "BlobSource",
+						"recursive": true
+					},
+					"sink": {
+						"type": "BlobSink"
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 0
+				},
+				"inputs": [
+					{
+						"referenceName": "InputDataset",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "OutputDataset",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Set Variable1",
+				"type": "SetVariable",
+				"typeProperties": {
+					"name": "test",
+					"value": "100"
+				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Set Variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"typeProperties": {
+					"items": {
+						"value": "@range(0, int(variables('test')))",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Wait1",
+							"type": "Wait",
+							"typeProperties": {
+								"waitTimeInSeconds": 1
+							}
+						}
+					]
+				}
+			}
+		],
+		"variables": {
+			"test": {
+				"type": "String",
+				"defaultValue": "1"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
