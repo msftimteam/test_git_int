@@ -1,7 +1,7 @@
 {
 	"name": "testDelimiter",
 	"properties": {
-		"description": "testtesttse",
+		"description": "testtesttsetest",
 		"activities": [
 			{
 				"name": "Copy Data1",
