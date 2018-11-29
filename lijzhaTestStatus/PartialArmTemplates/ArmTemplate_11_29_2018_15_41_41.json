@@ -6,30 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory Name",
 			"defaultValue": "lijzhaTestStatus"
-		},
-		"AzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
-		},
-		"AzureBlobStorage2_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage2'"
-		},
-		"testDelimiter_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "inputDataTest.txt"
-		},
-		"testDelimiter_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "test"
-		},
-		"testDelimiterOutput_properties_typeProperties_fileName": {
-			"type": "string",
-			"defaultValue": "test.txt"
-		},
-		"testDelimiterOutput_properties_typeProperties_folderPath": {
-			"type": "string",
-			"defaultValue": "test/outputTestDelimiter"
 		}
 	},
 	"variables": {
@@ -46,16 +22,12 @@
 					{
 						"name": "Wait1",
 						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
 						"typeProperties": {
 							"waitTimeInSeconds": 1
 						}
 					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
+				]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline1')]",
@@ -67,16 +39,12 @@
 					{
 						"name": "Wait1",
 						"type": "Wait",
-						"dependsOn": [],
-						"userProperties": [],
 						"typeProperties": {
 							"waitTimeInSeconds": 30
 						}
 					}
-				],
-				"annotations": []
-			},
-			"dependsOn": []
+				]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/pipeline2')]",
@@ -88,7 +56,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -96,7 +63,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -119,20 +85,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -149,7 +112,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -157,7 +119,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -180,20 +141,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -210,7 +168,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -218,7 +175,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -241,20 +197,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -271,7 +224,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -279,7 +231,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -302,20 +253,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -332,7 +280,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -340,7 +287,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -363,20 +309,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -393,7 +336,6 @@
 					{
 						"name": "Copy Data1",
 						"type": "Copy",
-						"dependsOn": [],
 						"policy": {
 							"timeout": "7.00:00:00",
 							"retry": 0,
@@ -401,7 +343,6 @@
 							"secureOutput": false,
 							"secureInput": false
 						},
-						"userProperties": [],
 						"typeProperties": {
 							"source": {
 								"type": "BlobSource",
@@ -424,20 +365,17 @@
 						"inputs": [
 							{
 								"referenceName": "testDelimiter",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "testDelimiterOutput",
-								"type": "DatasetReference",
-								"parameters": {}
+								"type": "DatasetReference"
 							}
 						]
 					}
-				],
-				"annotations": []
+				]
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/testDelimiter')]",
@@ -454,7 +392,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -480,13 +417,10 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": true
 					},
-					"fileName": "[parameters('testDelimiter_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testDelimiter_properties_typeProperties_folderPath')]"
+					"fileName": "inputDataTest.txt",
+					"folderPath": "test"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/testDelimiterOutput')]",
@@ -497,7 +431,6 @@
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
 				},
-				"annotations": [],
 				"type": "AzureBlob",
 				"structure": [
 					{
@@ -523,53 +456,22 @@
 						"skipLineCount": 0,
 						"firstRowAsHeader": true
 					},
-					"fileName": "[parameters('testDelimiterOutput_properties_typeProperties_fileName')]",
-					"folderPath": "[parameters('testDelimiterOutput_properties_typeProperties_folderPath')]"
+					"fileName": "test.txt",
+					"folderPath": "test/outputTestDelimiter"
 				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage1')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage1_connectionString')]"
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage2')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('AzureBlobStorage2_connectionString')]"
-				}
-			},
-			"dependsOn": []
+			}
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/trigger1')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
 				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
 						"referenceName": "pipeline1",
 						"type": "PipelineReference"
-					},
-					"parameters": {}
+					}
 				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
@@ -593,14 +495,12 @@
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"annotations": [],
 				"runtimeState": "Started",
 				"pipeline": {
 					"pipelineReference": {
 						"referenceName": "pipeline1",
 						"type": "PipelineReference"
-					},
-					"parameters": {}
+					}
 				},
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
