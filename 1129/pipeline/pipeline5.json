@@ -1,7 +1,7 @@
 {
 	"name": "pipeline5",
 	"properties": {
-		"description": "testtesttsetesttestse",
+		"description": "testtesttsetesttestsetetsetest",
 		"activities": [
 			{
 				"name": "Copy Data1",
