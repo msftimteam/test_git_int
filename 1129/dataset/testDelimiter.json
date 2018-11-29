@@ -1,7 +1,7 @@
 {
 	"name": "testDelimiter",
 	"properties": {
-		"description": "test",
+		"description": "testtests",
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage1",
 			"type": "LinkedServiceReference"
