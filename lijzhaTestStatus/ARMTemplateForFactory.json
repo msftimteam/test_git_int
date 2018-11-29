@@ -449,7 +449,7 @@
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
-				"description": "test",
+				"description": "testtests",
 				"linkedServiceName": {
 					"referenceName": "AzureBlobStorage1",
 					"type": "LinkedServiceReference"
