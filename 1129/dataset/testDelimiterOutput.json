@@ -1,0 +1,38 @@
+{
+	"name": "testDelimiterOutput",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"type": "AzureBlob",
+		"structure": [
+			{
+				"name": "1stCol",
+				"type": "String"
+			},
+			{
+				"name": "2ndCol",
+				"type": "String"
+			},
+			{
+				"name": "3rdCol",
+				"type": "String"
+			}
+		],
+		"typeProperties": {
+			"format": {
+				"type": "TextFormat",
+				"columnDelimiter": ",",
+				"rowDelimiter": "",
+				"nullValue": "\\N",
+				"treatEmptyAsNull": true,
+				"skipLineCount": 0,
+				"firstRowAsHeader": true
+			},
+			"fileName": "test.txt",
+			"folderPath": "test/outputTestDelimiter"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
